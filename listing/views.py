@@ -1,14 +1,18 @@
 from django.shortcuts import render
-
+from .models import listing
 # Create your views here.
 
 
 def index(request):
-    return render(request, 'listing/listings.html')
+    listings = listing.objects.all()
+    context = {
+        'listings': listings
+    }
+    return render(request, 'listing/listings.html', context)
 
 
-def listing(request):
-    return render(request, 'listing/listings.html')
+def singlelisting(request, listing_id):
+    return render(request, 'listing/listing.html')
 
 
 def search(request):
