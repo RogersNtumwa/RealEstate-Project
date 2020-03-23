@@ -49,7 +49,7 @@
             <div class="listing-heading text-center">
               <h4 class="text-primary">{{list.title}}</h4>
               <p>
-                <i class="fas fa-map-marker text-secondary"></i> {{lis.city}}
+                <i class="fas fa-map-marker text-secondary"></i> {{list.city}}
                 {{list.state}}, {{list.zipcode}}
               </p>
             </div>
@@ -111,21 +111,21 @@
           <li class="page-item disabled">
             <a class="page-link" href="#">&laquo;</a>
           </li>
-          {%endif%}
-          {% for i in listings.paginator.page_range%} 
-            {% if listings.number == i%}
-                <li class="page-item active">
-                  <a class="page-link">{{i}}</a>
-                </li>
-            {%else%}
-                <li class="page-item">
-                  <a  href="?page={{i}}" class="page-link">{{i}}</a>
-                </li>
-            {%endif%}
-          {%endfor%}
-          {%if listings.has_next%}
+          {%endif%} {% for i in listings.paginator.page_range%}
+          <!-- if statement -->
+          {% if listings.number == i%}
+          <li class="page-item active">
+            <a class="page-link">{{i}}</a>
+          </li>
+          {%else%}
           <li class="page-item">
-            <a class="page-link" href="?page={{listings.next_page_number}}">&raquo;</a>
+            <a href="?page={{i}}" class="page-link">{{i}}</a>
+          </li>
+          {%endif%} {%endfor%} {%if listings.has_next%}
+          <li class="page-item">
+            <a class="page-link" href="?page={{listings.next_page_number}}"
+              >&raquo;</a
+            >
           </li>
           {%else%}
           <li class="page-item disabled">
