@@ -30,7 +30,8 @@ INSTALLED_APPS = [
     'listing',
     'realtor',
     'pages',
-    'accounts'
+    'accounts',
+    'contacts'
 ]
 
 MIDDLEWARE = [
@@ -129,3 +130,10 @@ MESSAGE_TAGS = {
     messages.ERROR: 'danger',
 
 }
+
+# # Email Config
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_PORT = 5
+# EMAIL_HOST_USER = 'ntumwar@gmail.com'
+# EMAIL_HOST_PASSWORD = 'Nseribetya@123'
+# EMAIL_USE_TLS = True

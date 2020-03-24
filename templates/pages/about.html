@@ -1,4 +1,8 @@
-{% extends 'base.html'%} {% load static %} {% block content%}
+{% extends 'base.html'%} {% load static %}
+<!-- page title -->
+{% block title%} | About {%endblock%}
+<!-- body block -->
+{% block content%}
 
 <section id="showcase-inner" class="py-5 text-white">
   <div class="container">
@@ -46,25 +50,22 @@
         </p>
       </div>
       <div class="col-md-4">
-        {%if mvp_realtor%}
-
-        {%for mvp in mvp_realtor %}
-          <div class="card">
-            <img
-              class="card-img-top"
-              src="{{mvp.photo.url}}"
-              alt="Seller of the month"
-            />
-            <div class="card-body">
-              <h5 class="card-title">Seller Of The Month</h5>
-              <h6 class="text-secondary">{{ mvp.name}}</h6>
-              <p class="card-text">
-                {{mvp.description}}
-              </p>
-            </div>
+        {%if mvp_realtor%} {%for mvp in mvp_realtor %}
+        <div class="card">
+          <img
+            class="card-img-top"
+            src="{{mvp.photo.url}}"
+            alt="Seller of the month"
+          />
+          <div class="card-body">
+            <h5 class="card-title">Seller Of The Month</h5>
+            <h6 class="text-secondary">{{ mvp.name}}</h6>
+            <p class="card-text">
+              {{mvp.description}}
+            </p>
           </div>
-          {%endfor%}
-        {%endif%}
+        </div>
+        {%endfor%} {%endif%}
       </div>
     </div>
   </div>
@@ -88,26 +89,22 @@
   <div class="container">
     <h2 class="text-center">Our Team</h2>
     <div class="row text-center">
-
-      {% if Realtors %}
-        {%for realtor in Realtors %}
-          <div class="col-md-4">
-            <img src="{{ realtor.photo.url }}" alt="" class="rounded-circle mb-3" />
-            <h4>{{realtor.name}}</h4>
-            <p class="text-success">
-              <i class="fas fa-award text-success mb-3"></i> Realtor
-            </p>
-            <hr />
-            <p><i class="fas fa-phone"></i>{{realtor.phone}}</p>
-            <p><i class="fas fa-envelope-open"></i> {{realtor.email}}</p>
-          </div>
-        {%endfor%}
-      {% else%}
-        <div class="col-md-12">
-          <p>No Realtors Available</p>
-        </div>
+      {% if Realtors %} {%for realtor in Realtors %}
+      <div class="col-md-4">
+        <img src="{{ realtor.photo.url }}" alt="" class="rounded-circle mb-3" />
+        <h4>{{realtor.name}}</h4>
+        <p class="text-success">
+          <i class="fas fa-award text-success mb-3"></i> Realtor
+        </p>
+        <hr />
+        <p><i class="fas fa-phone"></i>{{realtor.phone}}</p>
+        <p><i class="fas fa-envelope-open"></i> {{realtor.email}}</p>
+      </div>
+      {%endfor%} {% else%}
+      <div class="col-md-12">
+        <p>No Realtors Available</p>
+      </div>
       {%endif%}
-      
     </div>
   </div>
 </section>

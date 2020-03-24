@@ -1,4 +1,8 @@
-{% extends 'base.html'%} {%load humanize%} {% block content%}
+{% extends 'base.html'%} {%load humanize%}
+<!-- title -->
+{% block title%} | Welcome {%endblock%}
+<!-- body block -->
+{% block content%}
 <section id="showcase">
   <!-- messages -->
   {% include 'partials/_messages.html'%}
